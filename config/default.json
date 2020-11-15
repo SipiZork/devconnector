@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://sipi:asd123@devconnector.li4wp.mongodb.net/devconnector?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "f85f7face881f58ccfa1",
+  "githubSecret": "7718a58100c0ef2dda242386d1832125ed4a54b7"
+}
