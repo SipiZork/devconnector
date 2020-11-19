@@ -15,6 +15,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
+        <Link to="/profiles">
+          Fejlesztők
+        </Link>
+      </li>
+      <li>
         <a onClick={logout} className="pointer">
           <i className="fas fa-sign-out-alt"></i>{' '}
           <span className="hide-sm">Kilépés</span>
@@ -25,9 +30,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
      <ul>
-      <li><Link to="/profiles">Fejlesztők</Link></li>
-      <li><Link to="/register">Regisztráció</Link></li>
-      <li><Link to="/login">Belépés</Link></li>
+      <li>
+        <Link to="/profiles">
+          Fejlesztők
+        </Link>
+      </li>
+      <li>
+        <Link to="/register">
+          Regisztráció
+        </Link>
+      </li>
+      <li>
+        <Link to="/login">
+          Belépés
+        </Link>
+      </li>
     </ul>
   );
 
