@@ -1,21 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Landing = () => (
-  <section className="landing">
-    <div className="dark-overlay">
-      <div className="landing-inner">
-        <h1 className="x-large">Developer Connector</h1>
-        <p className="lead">
-          Hozz létre egy fejlesztő profilt, oszd meg a posztjaidat és kérj segítséget más fejlesztőktől
+const Landing = ({ isAuthenticated }) => {
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />
+  }
+  return (
+    <section className="landing">
+      <div className="dark-overlay">
+        <div className="landing-inner">
+          <h1 className="x-large">Developer Connector</h1>
+          <p className="lead">
+            Hozz létre egy fejlesztő profilt, oszd meg a posztjaidat és kérj segítséget más fejlesztőktől
         </p>
-        <div className="buttons">
-          <Link to="/register" className="btn btn-primary">Regisztráció</Link>
-          <Link to="/login" className="btn btn-light">Belépés</Link>
+          <div className="buttons">
+            <Link to="/register" className="btn btn-primary">Regisztráció</Link>
+            <Link to="/login" className="btn btn-light">Belépés</Link>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  );
+};
 
-export default Landing;
+Landing.protoTypes = {
+  isAuthenticated: PropTypes.bool
+}
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(Landing);
